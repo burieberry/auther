@@ -2,6 +2,14 @@
 
 var app = require('./app');
 var db = require('./db');
+const session = require('express-session');
+const sessionSecret = require('../env.json');
+
+app.use(session({
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false
+}));
 
 var port = 8080;
 var server = app.listen(port, function (err) {
