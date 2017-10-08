@@ -11,6 +11,7 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
+  // session logger
   console.log('session', req.session);
   next();
 });
